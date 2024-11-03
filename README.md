@@ -6,4 +6,4 @@
 * Frakits - Minor HTML/CSS advices for better support in other OS's.
 
 #中文页面
-[点我跳转] (MaoPou.github.io/psychengine-CN.lua)
+[点我跳转](MaoPou.github.io/psychengine-CN.lua)
