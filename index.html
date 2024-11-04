@@ -54,10 +54,10 @@
 			<h3>你可以运行6种类型的LUA脚本:</h3>
 
 			<ul class="methoddiv">
-				<li class="exampleitem"><b>背景脚本:</b> 你可以理解为用来部署歌曲背景的lua，这个lua的名字要跟他对应的json文件的名字相同，这个json可以被游戏读取并使用这个json对应的lua。 <span class="methodexample">mods/My-Mod/stages/</span>.</li>
-				<li class="exampleitem"><b>箭头类型脚本:</b> 就是用来设置你这个箭头是用来干啥的（比如设置他按下后怎么怎么样之类的）。 <span class="methodexample">mods/My-Mod/custom_notetypes/</span>.</li>
-				<li class="exampleitem"><b>事件脚本:</b> 这个就是在歌曲进行到某一时刻会调用的脚本，国内俗称“事件” <span class="methodexample">mods/My-Mod/custom_events/</span>.</li>
-				<li class="exampleitem"><b>歌曲脚本:</b> 这个脚本是跟谱子json放一个目录的，这个脚本只会被同一个目录下的歌曲所调用，跟别的歌曲是分开的。</li>
+				<li class="exampleitem"><b>背景脚本:</b> 你可以理解为用来部署歌曲背景的lua，这个lua的名字要跟他对应的json文件的名字相同，这个json可以被游戏读取并使用这个json对应的lua。 路径：<span class="methodexample">mods/My-Mod/stages/</span>.</li>
+				<li class="exampleitem"><b>箭头类型脚本:</b> 就是用来设置你这个箭头是用来干啥的（比如设置他按下后怎么怎么样之类的）。 路径：<span class="methodexample">mods/My-Mod/custom_notetypes/</span>.</li>
+				<li class="exampleitem"><b>事件脚本:</b> 这个就是在歌曲进行到某一时刻会调用的脚本，国内俗称“事件”。路径：<span class="methodexample">mods/My-Mod/custom_events/</span>.</li>
+				<li class="exampleitem"><b>歌曲脚本:</b> 这个脚本是跟谱子json放一个目录的，这个脚本只会被同一个目录下的歌曲所调用，跟别的歌曲是分开的。<span class="methodexample">mods/My-Mod/You-Songs/</span>.</li>
 				<li class="exampleitem"><b>角色脚本:</b> 意思就是说这个lua脚本只能给某个角色单独使用，别的角色无法用这个lua。 你可以使用变量<a href="pages/variables.html">dadName, boyfriendName 和 gfName</a> 来判断当前的角色是否是你所想要的角色 (比如说 if dadName == 'pico'), 这个lua应该位于 <span class="methodexample">mods/My-Mod/characters/</span>.</li>
 				<li class="exampleitem"><b>通用脚本:</b> 他会保存在 <span class="methodexample">mods/My-Mod/scripts/</span>里, 所有的歌曲都会使用这个lua。</li>
 			</ul>
