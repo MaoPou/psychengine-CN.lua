@@ -37,103 +37,103 @@
 
 		<!-- Page Info -->
 		<div class="infobox">
-			<h1>PlayState Functions</h1>
-			<p><b>General functions related to the Game State, Song and Cutscenes.</b></p>
+			<h1>游玩谱子的函数</h1>
+			<p><b>与游戏界面（不是主菜单）、歌曲和过场动画相关的一些功能。</b></p>
 			<hr>
 			<h2 id="startCountdown">startCountdown</h2>
-			<p class="methodbox">Usage: <b>startCountdown()</b></p>
-			<p>Starts the countdown, should be used after finishing your Pre-Song Cutscene.</p>
+			<p class="methodbox">用法: <b>startCountdown()</b></p>
+			<p>这个函数会在过场动画播放完后调用，如果没有过程动画，就是当歌曲开始时调用。</p>
 			<hr>
 			
 			<h2 id="endSong">endSong</h2>
-			<p class="methodbox">Usage: <b>endSong()</b></p>
-			<p>Ends the song, can be cancelled through the Lua/HScript callback "onEndSong" to make cutscenes.</p>
+			<p class="methodbox">用法: <b>endSong()</b></p>
+			<p>在歌曲结束时调用, 你可以用 Lua/HScript 回调 "onEndSong" 来重新播放过程动画再开始歌曲。</p>
 			<hr>
 
 			<h2 id="getSongPosition">getSongPosition</h2>
-			<p class="methodbox">Usage: <b>getSongPosition()</b></p>
-			<p>Returns the current song position, in milliseconds.</p>
+			<p class="methodbox">用法: <b>getSongPosition()</b></p>
+			<p>获取当前歌曲过的时间，以毫秒为单位。1000毫秒=1秒</p>
 			<hr>
 			
 			<h2 id="restartSong">restartSong</h2>
 			<p class="methodbox">restartSong(<span class="isoptional">?</span><span class="variablemarkup">skipTransition</span>:Bool = false):Void</p>
-			<p>Restarts the Song, pretty self explanatory.</p>
+			<p>在重新开始歌曲的时候调用</p>
 			<ul>
-				<li><b><span class="variablemarkup">skipTransition</span> (Optional)</b> - Skips fade in/out transition, defaults to false.</li>
+				<li><b><span class="variablemarkup">skipTransition</span> (可选)</b> - 跳过淡出/淡入的过度, 默认不开启。</li>
 			</ul>
 			<hr>
 			
 			<h2 id="exitSong">exitSong</h2>
 			<p class="methodbox">exitSong(<span class="isoptional">?</span><span class="variablemarkup">skipTransition</span>:Bool = false):Void</p>
-			<p>Quits the Song and goes back to Freeplay/Story Mode based on where you started.</p>
+			<p>当从歌曲退出到Freeplay和StoryMode时调用.</p>
 			<ul>
-				<li><b><span class="variablemarkup">skipTransition</span> (Optional)</b> - Skips fade in/out transition, defaults to false.</li>
+				<li><b><span class="variablemarkup">skipTransition</span> (可选)</b> - 跳过淡出/淡入的过度, 默认不开启。</li>
 			</ul>
 			<hr>
 			
 			<h2 id="loadSong">loadSong</h2>
 			<p class="methodbox">loadSong(<span class="isoptional">?</span><span class="variablemarkup">name</span>:String = null, <span class="isoptional">?</span><span class="variablemarkup">difficultyNum</span>:Int = -1):Void</p>
-			<p>Loads the chart for a song.</p>
+			<p>加载别的歌曲。</p>
 			<ul>
-				<li><b><span class="variablemarkup">name</span> (Optional)</b> - Song Name (ex. "Bopeebo", "Lit Up").</li>
-				<li><b><span class="variablemarkup">difficultyNum</span> (Optional)</b> - Week's Difficulty Number (0 = Easy, 1 = Normal, 2 = Hard), use -1 to keep it the same as current.</li>
+				<li><b><span class="variablemarkup">name</span> (可选)</b> - 歌曲名字 (比如说 "Bopeebo", "Lit Up").</li>
+				<li><b><span class="variablemarkup">difficultyNum</span> (可选)</b> - 歌曲的难度 (0 = Easy, 1 = Normal, 2 = Hard), 可以使用-1来表示使用当前歌曲的难度</li>
 			</ul>
 			<hr>
 			
 			<h2 id="triggerEvent">triggerEvent</h2>
 			<p class="methodbox">triggerEvent(<span class="variablemarkup">name</span>:String, <span class="isoptional">?</span><span class="variablemarkup">value1</span>:String = '', <span class="isoptional">?</span><span class="variablemarkup">value2</span>:String = ''):Bool</p>
-			<p>Calls an event and uses two arguments for it, exactly like the Chart Editor does.
-			<br>Should always return "true".</p>
+			<p>调用事件，跟谱子编辑器是差不多的。
+			<br>应该总是返回 "true".</p>
 			<ul>
-				<li><b><span class="variablemarkup">name</span></b> - Event Name.</li>
-				<li><b><span class="variablemarkup">value1</span> (Optional)</b> - Does the same as what the Event says in the Chart Editor.</li>
-				<li><b><span class="variablemarkup">value2</span> (Optional)</b> - Does the same as what the Event says in the Chart Editor.</li>
+				<li><b><span class="variablemarkup">name</span></b> - 事件名称。</li>
+				<li><b><span class="variablemarkup">value1</span> (可选)</b> - 跟谱子编辑器一样。</li>
+				<li><b><span class="variablemarkup">value2</span> (可选)</b> - 跟谱子编辑器一样。</li>
 			</ul>
-			<h4>Examples:</h4>
+			<h4>举个例子:</h4>
 			<ul class="methoddiv">
-				<li class="exampleitem"><span class="methodexample">triggerEvent('Hey!', 'BF', 0.6)</span> - Calls "Hey!" event.</li>
+				<li class="exampleitem"><span class="methodexample">triggerEvent('Hey!', 'BF', 0.6)</span> - 调用名字叫"Hey!"的事件。</li>
 			</ul>
 			<hr>
 
 			<h2 id="setHealthBarColors">setHealthBarColors</h2>
 			<p class="methodbox">setHealthBarColors(<span class="variablemarkup">left</span>:String, <span class="variablemarkup">right</span>:String):Void</p>
-			<p>Changes Health Bar colors.</p>
+			<p>改变血条的颜色</p>
 			<ul>
-				<li><b><span class="variablemarkup">left</span></b> - Color hexadecimal string or <a href="https://api.haxeflixel.com/flixel/util/FlxColor.html">color name</a> for the left side of the bar.</li>
-				<li><b><span class="variablemarkup">right</span></b> - Color hexadecimal string or <a href="https://api.haxeflixel.com/flixel/util/FlxColor.html">color name</a> for the right side of the bar.</li>
+				<li><b><span class="variablemarkup">left</span></b> - 颜色的16进制或者 <a href="https://api.haxeflixel.com/flixel/util/FlxColor.html">颜色名称/a> ，这是左侧的血条的颜色。</li>
+				<li><b><span class="variablemarkup">right</span></b> - 颜色的16进制或者 <a href="https://api.haxeflixel.com/flixel/util/FlxColor.html">颜色名称</a> ，这是右侧的血条的颜色。</li>
 			</ul>
-			<h4>Examples:</h4>
+			<h4>举个例子:</h4>
 			<ul class="methoddiv">
-				<li class="exampleitem"><span class="methodexample">setHealthBarColors('FF0000', '00FF00')</span> - Makes left side red and right side lime.</li>
-				<li class="exampleitem"><span class="methodexample">setHealthBarColors('red', 'lime')</span> - Same as above, but using color names.</li>
+				<li class="exampleitem"><span class="methodexample">setHealthBarColors('FF0000', '00FF00')</span> - 让左边的血条变成红色，右边的变成灰色，这里可以使用颜色的16进制。</li>
+				<li class="exampleitem"><span class="methodexample">setHealthBarColors('red', 'lime')</span> - 和上面一样，但是我们这里用的是颜色名称。</li>
 			</ul>
 			<hr>
 
 			<h2 id="setTimeBarColors">setTimeBarColors</h2>
 			<p class="methodbox">setTimeBarColors(<span class="variablemarkup">left</span>:String, <span class="variablemarkup">right</span>:String):Void</p>
-			<p>Changes Time Bar colors.</p>
+			<p>改变时间条的颜色</p>
 			<ul>
-				<li><b><span class="variablemarkup">left</span></b> - Color hexadecimal string or <a href="https://api.haxeflixel.com/flixel/util/FlxColor.html">color name</a> for the left side of the bar.</li>
-				<li><b><span class="variablemarkup">right</span></b> - Color hexadecimal string or <a href="https://api.haxeflixel.com/flixel/util/FlxColor.html">color name</a> for the right side of the bar.</li>
+				<li><b><span class="variablemarkup">left</span></b> - 颜色的16进制或者<a href="https://api.haxeflixel.com/flixel/util/FlxColor.html">颜色名称</a>，这是左侧的条的颜色。</li>
+				<li><b><span class="variablemarkup">right</span></b> - 颜色的16进制或者<a href="https://api.haxeflixel.com/flixel/util/FlxColor.html">颜色名称</a> 这是右侧的条的颜色。</li>
 			</ul>
-			<h4>Examples:</h4>
+			<h4>举个例子:</h4>
 			<ul class="methoddiv">
-				<li class="exampleitem"><span class="methodexample">setTimeBarColors('FF0000', '00FF00')</span> - Makes left side red and right side lime.</li>
-				<li class="exampleitem"><span class="methodexample">setTimeBarColors('red', 'lime')</span> - Same as above, but using color names.</li>
+				<li class="exampleitem"><span class="methodexample">setTimeBarColors('FF0000', '00FF00')</span> - 让左边的条变成红色，右边的变成灰色，这里可以使用颜色的16进制。</li>
+				<li class="exampleitem"><span class="methodexample">setTimeBarColors('red', 'lime')</span> - 和上面一样，但是我们这里用的是颜色名称。</li>
 			</ul>
 			<hr>
 
 			<h2 id="startDialogue">startDialogue</h2>
 			<p class="methodbox">startDialogue(<span class="variablemarkup">dialogueFile</span>:String, <span class="isoptional">?</span><span class="variablemarkup">music</span>:String):Void</p>
-			<p>Loads a Dialogue .JSON inside the Chart folder, handles translation loading automatically.</p>
+			<p>开启对话 在Chart文件夹中加载一个Dialog.JSON，自动翻译并加载。</p>
 			<ul>
-				<li><b><span class="variablemarkup">dialogueFile</span></b> - Dialogue file .JSON name.</li>
-				<li><b><span class="variablemarkup">music</span> (Optional)</b> - Plays a background music inside "music/" folder.</li>
+				<li><b><span class="variablemarkup">dialogueFile</span></b> - 对话的json名字</li>
+				<li><b><span class="variablemarkup">music</span> (Optional)</b> - 你可以播放"music/" 的音乐.</li>
 			</ul>
-			<h4>Examples:</h4>
+			<h4>举个例子:</h4>
 			<ul class="methoddiv">
-				<li class="exampleitem"><span class="methodexample">startDialogue('dialogue')</span> - Loads "dialogue.json" inside the chart folder, will prefer "dialogue_pt-BR.json" if you're playing on Portuguese (Brazil).</li>
-				<li class="exampleitem"><span class="methodexample">startDialogue('dialogue', 'breakfast')</span> - Same as above, but plays "Breakfast" as background music.</li>
+				<li class="exampleitem"><span class="methodexample">startDialogue('dialogue')</span> - 在Chart文件夹中加载“Dialog.json”，如果你使用葡萄牙语（巴西），将首选“Dialog_pt-BR.json”。</li>
+				<li class="exampleitem"><span class="methodexample">startDialogue('dialogue', 'breakfast')</span> - 跟上面一样，但是会播放"Breakfast" 作为背景音乐。</li>
 			</ul>
 			<hr>
 
