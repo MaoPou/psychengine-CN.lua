@@ -58,41 +58,41 @@
 				<li class="exampleitem"><b>箭头类型脚本:</b> 就是用来设置你这个箭头是用来干啥的（比如设置他按下后怎么怎么样之类的）。 <span class="methodexample">mods/My-Mod/custom_notetypes/</span>.</li>
 				<li class="exampleitem"><b>事件脚本:</b> 这个就是在歌曲进行到某一时刻会调用的脚本，国内俗称“事件” <span class="methodexample">mods/My-Mod/custom_events/</span>.</li>
 				<li class="exampleitem"><b>歌曲脚本:</b> 这个脚本是跟谱子json放一个目录的，这个脚本只会被同一个目录下的歌曲所调用，跟别的歌曲是分开的。</li>
-				<li class="exampleitem"><b>角色脚本:</b> 意思就是说这个lua脚本只能给某个角色单独使用，别的角色无法用这个lua。 你可以使用变量<a href="pages/variables.html">dadName, boyfriendName 和 gfName</a> 来判断当前的角色是否是你所想要的角色 (if dadName == 'pico' for example), should be in <span class="methodexample">mods/My-Mod/characters/</span>.</li>
-				<li class="exampleitem"><b>General Script:</b> It should be saved in <span class="methodexample">mods/My-Mod/scripts/</span>, it will always run in every Song as long as the Mod is loaded.</li>
+				<li class="exampleitem"><b>角色脚本:</b> 意思就是说这个lua脚本只能给某个角色单独使用，别的角色无法用这个lua。 你可以使用变量<a href="pages/variables.html">dadName, boyfriendName 和 gfName</a> 来判断当前的角色是否是你所想要的角色 (比如说 if dadName == 'pico'), 这个lua应该位于 <span class="methodexample">mods/My-Mod/characters/</span>.</li>
+				<li class="exampleitem"><b>通用脚本:</b> 他会保存在 <span class="methodexample">mods/My-Mod/scripts/</span>里, 所有的歌曲都会使用这个lua。</li>
 			</ul>
 			<hr>
-			<h2>Functions</h2>
-			<h3>There are 22 pages available with 212 functions:</h3>
+			<h2>函数</h2>
+			<h3>这里有22个页面提供212个函数:</h3>
 			<ul>
-				<li><a href="pages/playstate.html">PlayState Functions</a></li>
-				<li><a href="pages/reflection.html">Reflection Functions</a></li>
-				<li><a href="pages/spritesheet.html">Spritesheet Functions</a></li>
-				<li><a href="pages/flxanimate.html">FlxAnimate Functions</a></li>
-				<li><a href="pages/text.html">Text Functions</a></li>
-				<li><a href="pages/sound.html">Sound Functions</a></li>
-				<li><a href="pages/shaders.html">Shaders Functions</a></li>
-				<li><a href="pages/camera.html">Camera Functions</a></li>
-				<li><a href="pages/input.html">Input Functions</a></li>
-				<li><a href="pages/tween.html">Tween Functions</a></li>
-				<li><a href="pages/timer.html">Timer Functions</a></li>
-				<li><a href="pages/character.html">Character Functions</a></li>
-				<li><a href="pages/file.html">File I/O Functions</a></li>
-				<li><a href="pages/translations.html">Language/Translation Functions</a></li>
-				<li><a href="pages/achievements.html">Achievements Functions</a></li>
-				<li><a href="pages/substate.html">Substate Functions</a></li>
-				<li><a href="pages/precache.html">Precache Functions</a></li>
-				<li><a href="pages/score.html">Score Functions</a></li>
-				<li><a href="pages/savedata.html">Save Data Functions</a></li>
-				<li><a href="pages/script.html">Script Functions</a></li>
-				<li><a href="pages/discord.html">Discord Functions</a></li>
-				<li><a href="pages/uncategorized.html">Uncategorized Functions</a></li>
+				<li><a href="pages/playstate.html">游玩谱子的函数</a></li>
+				<li><a href="pages/reflection.html">获取/设置函数</a></li>
+				<li><a href="pages/spritesheet.html">贴图函数</a></li>
+				<li><a href="pages/flxanimate.html">xml贴图函数</a></li>
+				<li><a href="pages/text.html">文本函数</a></li>
+				<li><a href="pages/sound.html">声音函数</a></li>
+				<li><a href="pages/shaders.html">着色器函数</a></li>
+				<li><a href="pages/camera.html">摄像机函数</a></li>
+				<li><a href="pages/input.html">输入函数</a></li>
+				<li><a href="pages/tween.html">移动函数</a></li>
+				<li><a href="pages/timer.html">时间函数</a></li>
+				<li><a href="pages/character.html">角色函数</a></li>
+				<li><a href="pages/file.html">文件函数</a></li>
+				<li><a href="pages/translations.html">语言/翻译 函数</a></li>
+				<li><a href="pages/achievements.html">成就函数</a></li>
+				<li><a href="pages/substate.html">二级菜单函数</a></li>
+				<li><a href="pages/precache.html">预加载函数</a></li>
+				<li><a href="pages/score.html">分数函数</a></li>
+				<li><a href="pages/savedata.html">保存函数</a></li>
+				<li><a href="pages/script.html">通用函数</a></li>
+				<li><a href="pages/discord.html">Discord 函数</a></li>
+				<li><a href="pages/uncategorized.html">没有分类的函数</a></li>
 			</ul>
 			<br><hr>
-			<h2>Other Pages</h2>
+			<h2>其他页面</h2>
 			<ul>
-				<li><a href="pages/variables.html">List of all 106 Variables</a></li>
-				<li><a href="pages/snippets.html">Code Snippets</a></li>
+				<li><a href="pages/variables.html">106个变量的列表</a></li>
+				<li><a href="pages/snippets.html">一些代码例子</a></li>
 			</ul>
 		</div>
 	</body>
