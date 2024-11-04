@@ -7,7 +7,7 @@ function createSidebarContent(prefix) {
 	const searchInput = document.createElement('input');
 	searchInput.type = 'text';
 	searchInput.id = 'searchInput';
-	searchInput.placeholder = 'Search for a Function...';
+	searchInput.placeholder = '函数搜索>w<';
 
 	const selectablesDiv = document.createElement('div');
 	selectablesDiv.className = 'selectables';
