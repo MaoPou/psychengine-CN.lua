@@ -92,18 +92,18 @@
 				<span class="variablemarkup">value</span>:Dynamic,
 				<span class="isoptional">?</span><span class="variablemarkup">allowMaps</span>:Bool = false,
 				<span class="isoptional">?</span><span class="variablemarkup">allowInstances</span>:Bool = false):Dynamic</p>
-			<p>Sets the value of a property or variable inside PlayState, a variable saved through <a href="script.html#setVar">"setVar"</a> or a Lua Sprite/Text.<br>Returns "value".</p>
+			<p>这个函数跟getProperty相反，这个函数是用来设置变量值的，你可以用 <a href="script.html#setVar">"setVar"</a> 或者lua等<br>来设置变量值。</p>
 			<ul>
-				<li><b><span class="variablemarkup">variable</span></b> - Variable or Property.</li>
-				<li><b><span class="variablemarkup">value</span></b> - Value to set.</li>
-				<li><b><span class="variablemarkup">allowMaps</span> (Optional)</b> - Allows for Map access in properties, disabled by default for optimization.</li>
-				<li><b><span class="variablemarkup">allowInstances</span> (Optional)</b> - Allows usage of <a href="#instanceArg">"instanceArg"</a> for properties, disabled by default for optimization.</li>
+				<li><b><span class="variablemarkup">variable</span></b> - 你要设置的变量名。</li>
+				<li><b><span class="variablemarkup">value</span></b> - 你要把他设置成啥。</li>
+				<li><b><span class="variablemarkup">allowMaps</span> (可选)</b> - 允许使用map设置，通常为了优化他是禁用的。</li>
+				<li><b><span class="variablemarkup">allowInstances</span> (可选)</b> - 允许使用<a href="#instanceArg">"instanceArg"</a>来设置，默认情况下，为优化而禁用。</li>
 			</ul>
-			<h4>Examples:</h4>
+			<h4>举个例子:</h4>
 			<ul class="methoddiv">
-				<li class="exampleitem"><span class="methodexample">setProperty('boyfriend.stunned', true)</span> - Stuns player.</li>
-				<li class="exampleitem"><span class="methodexample">setProperty('singAnimations[3]', 'singLEFT')</span> - Will force Right sing animation to be "singLEFT".</li>
-				<li class="exampleitem"><span class="methodexample">setProperty('boyfriend.animOffsets.idle', {-200, 100}, true)</span> - Changes Player's Idle offsets to X -200, Y 100.</li>
+				<li class="exampleitem"><span class="methodexample">setProperty('boyfriend.stunned', true)</span> - 会让玩家眩晕，大概就是你怎么按都没反应。</li>
+				<li class="exampleitem"><span class="methodexample">setProperty('singAnimations[3]', 'singLEFT')</span> - 让玩家按下右键后播放"singLEFT"动作。</li>
+				<li class="exampleitem"><span class="methodexample">setProperty('boyfriend.animOffsets.idle', {-200, 100}, true)</span> - 更改角色的偏移。</li>
 			</ul>
 			<hr>
 
@@ -114,20 +114,19 @@
 				<span class="variablemarkup">value</span>:Dynamic,
 				<span class="isoptional">?</span><span class="variablemarkup">allowMaps</span>:Bool = false,
 				<span class="isoptional">?</span><span class="variablemarkup">allowInstances</span>:Bool = false):Dynamic</p>
-			<p>Sets the value of a property of a member inside a FlxTypedGroup/FlxSpriteGroup.
-			<br>Returns "value".</p>
+			<p>跟getPropertyFromGroup相反，用来设置组变量。</p>
 			<ul>
-				<li><b><span class="variablemarkup">variable</span></b> - Group variable.</li>
-				<li><b><span class="variablemarkup">index</span></b> - Index of a member of the group you put in the previous argument.</li>
-				<li><b><span class="variablemarkup">property</span></b> - Property of the selected member of the group.</li>
-				<li><b><span class="variablemarkup">value</span></b> - Value to set.</li>
-				<li><b><span class="variablemarkup">allowMaps</span> (Optional)</b> - Allows for Map access in properties, disabled by default for optimization.</li>
-				<li><b><span class="variablemarkup">allowInstances</span> (Optional)</b> - Allows usage of <a href="#instanceArg">"instanceArg"</a> for properties, disabled by default for optimization.</li>
+				<li><b><span class="variablemarkup">variable</span></b> - 组变量。</li>
+				<li><b><span class="variablemarkup">index</span></b> -  索引数。</li>
+				<li><b><span class="variablemarkup">property</span></b> - 这个组里成员的属性。</li>
+				<li><b><span class="variablemarkup">value</span></b> - 你想把他设置成啥。</li>
+				<li><b><span class="variablemarkup">allowMaps</span> (可选)</b> - 允许使用map设置，通常为了优化他是禁用的。</li>
+				<li><b><span class="variablemarkup">allowInstances</span> (可选)</b> - 允许使用<a href="#instanceArg">"instanceArg"</a> 设置，通常为了优化他是禁用的。</li>
 			</ul>
-			<h4>Examples:</h4>
+			<h4>举个例子:</h4>
 			<ul class="methoddiv">
-				<li class="exampleitem"><span class="methodexample">setPropertyFromGroup('playerStrums', 2, 'visible', false)</span> - Hides Player's Up note.</li>
-				<li class="exampleitem"><span class="methodexample">setPropertyFromGroup('unspawnNotes', 0, 'extraData.testVar', true, true)</span> - Lua equivalent of <b>unspawnNotes[0].extraData.set('testVar', true)</b>.</li>
+				<li class="exampleitem"><span class="methodexample">setPropertyFromGroup('playerStrums', 2, 'visible', false)</span> - 隐藏玩家的上键</li>
+				<li class="exampleitem"><span class="methodexample">setPropertyFromGroup('unspawnNotes', 0, 'extraData.testVar', true, true)</span> - 相当于<b>unspawnNotes[0].extraData.set('testVar', true)</b>.</li>
 			</ul>
 			<hr>
 
