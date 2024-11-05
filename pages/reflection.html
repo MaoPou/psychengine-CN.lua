@@ -37,53 +37,53 @@
 
 		<!-- Page Info -->
 		<div class="infobox">
-			<h1>Reflection Functions</h1>
-			<p><b>Functions to get/set properties from (both Hardcoded and Lua) Objects and call their methods.</b></p>
+			<h1>反射函数</h1>
+			<p><b>就是你可以获取/设置变量的函数</b></p>
 			<hr>
 
 			<h2 id="getProperty">getProperty</h2>
 			<p class="methodbox">getProperty(<span class="variablemarkup">variable</span>:String, <span class="isoptional">?</span><span class="variablemarkup">allowMaps</span>:Bool = false):Dynamic</p>
-			<p>Returns the value of a property or variable inside PlayState, a variable saved through <a href="script.html#setVar">"setVar"</a> or a Lua Sprite/Text.</p>
+			<p>这个可以获取已经存在的变量的数值, 你可以使用 <a href="script.html#setVar">"setVar"</a> 或直接local一些变量。</p>
 			<ul>
-				<li><b><span class="variablemarkup">variable</span></b> - Variable or Property.</li>
-				<li><b><span class="variablemarkup">allowMaps</span> (Optional)</b> - Allows for Map access in properties, disabled by default for optimization.</li>
+				<li><b><span class="variablemarkup">variable</span></b> - 你要获取变量的名称。</li>
+				<li><b><span class="variablemarkup">allowMaps</span> (可选)</b> - 允许使用map访问，通常为了优化他是禁用的。</li>
 			</ul>
-			<h4>Examples:</h4>
+			<h4>举个例子:</h4>
 			<ul class="methoddiv">
-				<li class="exampleitem"><span class="methodexample">getProperty('dad.scale.x')</span> - Can return "1.0", for example.</li>
-				<li class="exampleitem"><span class="methodexample">getProperty('singAnimations[0]')</span> - Normally returns "singLEFT".</li>
-				<li class="exampleitem"><span class="methodexample">getProperty('boyfriend.animOffsets.idle', true)</span> - Can return a table of "{0, 0}", for example.</li>
+				<li class="exampleitem"><span class="methodexample">getProperty('dad.scale.x')</span> - 他会返回这个贴图x轴上的大小</li>
+				<li class="exampleitem"><span class="methodexample">getProperty('singAnimations[0]')</span> - 通常他会返回 "singLEFT".</li>
+				<li class="exampleitem"><span class="methodexample">getProperty('boyfriend.animOffsets.idle', true)</span> - 他可以返回 "{0, 0}"。</li>
 			</ul>
 			<hr>
 
 			<h2 id="getPropertyFromGroup">getPropertyFromGroup</h2>
 			<p class="methodbox">getPropertyFromGroup(<span class="variablemarkup">variable</span>:String, <span class="variablemarkup">index</span>:Int, <span class="variablemarkup">property</span>:Dynamic, <span class="isoptional">?</span><span class="variablemarkup">allowMaps</span>:Bool = false):Dynamic</p>
-			<p>Returns the value of a property of a member inside a FlxTypedGroup/FlxSpriteGroup.</p>
+			<p>返回FlxTypedGroup/FlxSpriteGroup内变量的属性值。</p>
 			<ul>
-				<li><b><span class="variablemarkup">variable</span></b> - Group variable.</li>
-				<li><b><span class="variablemarkup">index</span></b> - Index of a member of the group you put in the previous argument.</li>
-				<li><b><span class="variablemarkup">property</span></b> - Property of the selected member of the group.</li>
-				<li><b><span class="variablemarkup">allowMaps</span> (Optional)</b> - Allows for Map access in properties, disabled by default for optimization.</li>
+				<li><b><span class="variablemarkup">variable</span></b> - 组变量。</li>
+				<li><b><span class="variablemarkup">index</span></b> - 因为他是一个组，所以你得输入索引数。</li>
+				<li><b><span class="variablemarkup">property</span></b> - 你得写这个玩意儿的属性。</li>
+				<li><b><span class="variablemarkup">allowMaps</span> (可选)</b> - 允许使用map访问，通常为了优化他是禁用的。</li>
 			</ul>
-			<h4>Examples:</h4>
+			<h4>举个例子:</h4>
 			<ul class="methoddiv">
-				<li class="exampleitem"><span class="methodexample">getPropertyFromGroup('playerStrums', 1, 'animation.curAnim.name')</span> - Will return the current animation name of the Player's Down Note.</li>
-				<li class="exampleitem"><span class="methodexample">getPropertyFromGroup('unspawnNotes', 0, 'extraData.testVar', true)</span> - Lua equivalent of <b>unspawnNotes[0].extraData.get('testVar')</b>.</li>
+				<li class="exampleitem"><span class="methodexample">getPropertyFromGroup('playerStrums', 1, 'animation.curAnim.name')</span> - 他会返回当前玩家按下箭头后角色的动作名称。</li>
+				<li class="exampleitem"><span class="methodexample">getPropertyFromGroup('unspawnNotes', 0, 'extraData.testVar', true)</span> - 就相当于 <b>unspawnNotes[0].extraData.get('testVar')</b>.</li>
 			</ul>
 			<hr>
 
 			<h2 id="getPropertyFromClass">getPropertyFromClass</h2>
 			<p class="methodbox">getPropertyFromClass(<span class="variablemarkup">classVar</span>:String, <span class="variablemarkup">variable</span>:String, <span class="isoptional">?</span><span class="variablemarkup">allowMaps</span>:Bool = false):Dynamic</p>
-			<p>Returns the value of a property inside a class.</p>
+			<p>这个能获取不同class的变量，也就是说这个游戏里面所有的公共变量都能被获取。</p>
 			<ul>
-				<li><b><span class="variablemarkup">classVar</span></b> - Class variable based on the source folder structure.</li>
-				<li><b><span class="variablemarkup">variable</span></b> - Variable or Property.</li>
-				<li><b><span class="variablemarkup">allowMaps</span> (Optional)</b> - Allows for Map access in properties, disabled by default for optimization.</li>
+				<li><b><span class="variablemarkup">classVar</span></b> - 你得写这个class在源码中的路径。</li>
+				<li><b><span class="variablemarkup">variable</span></b> - 你要获取的变量名。</li>
+				<li><b><span class="variablemarkup">allowMaps</span> (可选)</b> - 允许使用map访问，通常为了优化他是禁用的。</li>
 			</ul>
-			<h4>Examples:</h4>
+			<h4>举个例子:</h4>
 			<ul class="methoddiv">
-				<li class="exampleitem"><span class="methodexample">getPropertyFromClass('backend.ClientPrefs', 'data.downScroll')</span> - Will return the current Downscroll option value, either "true" or "false".</li>
-				<li class="exampleitem"><span class="methodexample">getPropertyFromClass('states.PlayState', 'SONG.player1')</span> - Will return the Player character's name from the Chart, which is a string.</li>
+				<li class="exampleitem"><span class="methodexample">getPropertyFromClass('backend.ClientPrefs', 'data.downScroll')</span> - 他会返回Downscroll设置的变量是"true"或者"false".</li>
+				<li class="exampleitem"><span class="methodexample">getPropertyFromClass('states.PlayState', 'SONG.player1')</span> - 他会返回当前谱子内player1的名称。</li>
 			</ul>
 			<hr>
 
