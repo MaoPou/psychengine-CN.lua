@@ -136,26 +136,26 @@
 				<span class="variablemarkup">value</span>:Dynamic,
 				<span class="isoptional">?</span><span class="variablemarkup">allowMaps</span>:Bool = false,
 				<span class="isoptional">?</span><span class="variablemarkup">allowInstances</span>:Bool = false):Dynamic</p>
-			<p>Sets the value of a property inside a class.
-			<br>Returns "value".</p>
+			<p>可以设置在别的class的变量值。
+			<br>他会返回"value"的值。</p>
 			<ul>
-				<li><b><span class="variablemarkup">classVar</span></b> - Class variable based on the source folder structure.</li>
-				<li><b><span class="variablemarkup">variable</span></b> - Variable or Property.</li>
-				<li><b><span class="variablemarkup">value</span></b> - Value to set.</li>
-				<li><b><span class="variablemarkup">allowMaps</span> (Optional)</b> - Allows for Map access in properties, disabled by default for optimization.</li>
-				<li><b><span class="variablemarkup">allowInstances</span> (Optional)</b> - Allows usage of <a href="#instanceArg">"instanceArg"</a> for properties, disabled by default for optimization.</li>
+				<li><b><span class="variablemarkup">classVar</span></b> - 这个class在源码里的路径。</li>
+				<li><b><span class="variablemarkup">variable</span></b> - 变量名。</li>
+				<li><b><span class="variablemarkup">value</span></b> - 你想把他设置成啥。</li>
+				<li><b><span class="variablemarkup">allowMaps</span> (可选)</b> - 允许使用map设置，通常为了优化他是禁用的。</li>
+				<li><b><span class="variablemarkup">allowInstances</span> (可选)</b> - 允许使用<a href="#instanceArg">"instanceArg"</a> 来设置，通常为了优化他是被禁用的。</li>
 			</ul>
-			<h4>Examples:</h4>
+			<h4>举个例子:</h4>
 			<ul class="methoddiv">
-				<li class="exampleitem"><span class="methodexample">setPropertyFromClass('states.PlayState', 'SONG.player1', 'pico-playable')</span> - Force set Player character to "pico-playable".</li>
+				<li class="exampleitem"><span class="methodexample">setPropertyFromClass('states.PlayState', 'SONG.player1', 'pico-playable')</span> - 将play1的角色换成"pico-playable".</li>
 			</ul>
 			<hr>
 
 			<h2 id="callMethod">callMethod</h2>
 			<p class="methodbox">callMethod(<span class="variablemarkup">funcToRun</span>:String, <span class="isoptional">?</span><span class="variablemarkup">args</span>:Array&lt;Dynamic&gt; = null):Dynamic</p>
-			<p>Calls a function and returns its value.</p>
+			<p>调用函数并返回其值。</p>
 			<ul>
-				<li><b><span class="variablemarkup">funcToRun</span></b> - Name of the function you want to run.</li>
+				<li><b><span class="variablemarkup">funcToRun</span></b> - 你想运行的函数名称。</li>
 				<li><b><span class="variablemarkup">args</span> (Optional)</b> - Optional table of arguments.</li>
 			</ul>
 			<h4>Examples:</h4>
