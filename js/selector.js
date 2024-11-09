@@ -270,7 +270,14 @@ function createSidebarContent(prefix) {
 		'getRandomInt': 'uncategorized.html',
 		'getRandomFloat': 'uncategorized.html',
 		'debugPrint': 'uncategorized.html',
-		'getModSetting': 'uncategorized.html'
+		'getModSetting': 'uncategorized.html',
+
+		// Terminology
+		'String': 'Terminology.html',
+		'Bool': 'Terminology.html',
+		'Int': 'Terminology.html',
+		'Float': 'Terminology.html',
+		'Array': 'Terminology.html'
 	};
 
 	// Create list elements and append to itemList

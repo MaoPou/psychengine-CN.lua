@@ -1,0 +1,130 @@
+<html lang="cn"></html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Psych Engine - PlayState Functions</title>
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/header.css">
+		<link rel="stylesheet" href="../css/search.css">
+		<link rel="stylesheet" href="../css/theme.css">
+		<link rel="icon" href="../assets/icon.ico" type="image/x-icon">
+	</head>
+
+	<body>
+		<!-- Create Search Bar and Theme Boxes-->
+		<div class="sidebar"></div>
+		<div class="themeBox" onclick="switchTheme()">
+			<div class="themeDot"></div>
+			<div class="themeDot" style="margin-left: 70px"></div>
+			<button class="themeBtn" id="themeSelector"></button>
+		</div>
+
+		<!-- Load JavaScript-->
+		<script src="../js/selector.js"></script>
+		<script>createSidebarContent();</script>
+		<script src="../js/searchbar.js"></script>
+		<script src="../js/theme.js"></script>
+
+		<!-- Header -->
+		<div class="headerbox">
+			<div class="header">
+				<a href="../index.html">
+					<img width="64" src="../assets/icon.ico" alt="Psych Engine Logo" draggable="false">
+					<div class="headertext">Psych Engine - Lua Script API</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Page Info -->
+		<div class="infobox">
+			<h1>专业术语解释</h1>
+			<p><b>这个页面用于解释一些你可能会看见的专业术语，但是在实际的lua里你不必声明这个变量的类型，lua会自动识别。</b></p>
+			<hr>
+			<p><b>这是常见的数据类型</b></p>
+			<h1>数据类型</h1>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">String</span> -字符串</li>
+				<li class="exampleitem"><span class="methodexample">Bool</span> -布尔类型</li>
+				<li class="exampleitem"><span class="methodexample">Int</span> -整数类型</li>
+				<li class="exampleitem"><span class="methodexample">Float</span> -浮点数</li>
+				<li class="exampleitem"><span class="methodexample">Array</span> -数组类型</li>
+			</ul>
+			<hr>
+
+			<h2 id="String">String</h2>
+			<p class="methodbox">数据类型: <b>String</b></p>
+			<p>这个类型叫字符串，如果有个变量被声明为字符串，那么这个变量的值可以是任意字符组成而成，但是这个变量的值必须要用引号引起来。</p>
+			<h4>举个例子:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">hello:String = "abcd1234./?"</span> - 这个变量的值被赋"abcd1234./?"的值</li>
+			</ul>
+			<h4><font color="red">错误示范:</font></h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">hello:String = abcd1234./?</span> - 我们提到过这个变量的值必须要用引号引起来，前提是<span class="methodexample">abcd1234./? </span>不是一个变量。</li>
+			</ul>
+			<hr>
+
+			<h2 id="Bool">Bool</h2>
+			<p class="methodbox">数据类型: <b>Bool</b></p>
+			<p>这个类型叫布尔类型，他只能表示True和False，代表“真”和“假”，如果有个变量被声明为布尔值，那么这个变量值只能为“True”或“False”。</p>
+			<h4>举个例子:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">hello:Bool = true</span> - 这个变量的值被赋真（true）值</li>
+				<li class="exampleitem"><span class="methodexample">hello:Bool = false</span> - 这个变量的值被赋假（false）值</li>
+			</ul>
+			<h4><font color="red">错误示范:</font></h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">hello:Bool = "true"</span> - 布尔变量的真假值不需要引号。</li>
+			</ul>
+			<hr>
+
+			<h2 id="Int">Int</h2>
+			<p class="methodbox">数据类型: <b>Int</b></p>
+			<p>这个类型叫整数类型，顾名思义，如果一个变量被声明为整数类型，那么这个变量值只能是整数，不能包含字母，符号（小数点也算符号）等不是数字的字符。</p>
+			<h4>举个例子:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">hello:Int = 114514</span> - 这个变量的值被赋值为<span class="methodexample">114515 </span></li>
+				<li class="exampleitem"><span class="methodexample">hello:Int = 1234</span> - 这个变量的值被赋值为<span class="methodexample">1234 </span></li>
+			</ul>
+			<h4><font color="red">错误示范:</font></h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">hello:Int = "114514"</span> - 整数变量的值不需要引号。</li>
+				<li class="exampleitem"><span class="methodexample">hello:Int = 11451.4</span> - 整数变量的值不能有符号（小数点）。</li>
+			</ul>
+			<hr>
+
+			<h2 id="Float">Float</h2>
+			<p class="methodbox">数据类型: <b>Float</b></p>
+			<p>这个类型叫浮点数，浮点数其实和整数类型的区别就是你可以使用小数点（只能是小数点，其他符号都不行，小数点的位置要在哪里打你是知道的），如果一个变量被声明为浮点数，那么他既可以是整数，也可以是小数，和整数类型一样，不能包含字母和除小数点外的符号。</p>
+			<h4>举个例子:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">hello:FLOAT = 114514.0</span> - 这个变量的值被赋值为<span class="methodexample">114515.0 </span></li>
+				<li class="exampleitem"><span class="methodexample">hello:FLOAT = 114514</span> - 前面提到过他可以是整数。 </span></li>
+				<li class="exampleitem"><span class="methodexample">hello:FLOAT = 1234.567</span> - 这个变量的值被赋值为<span class="methodexample">1234.567 </span></li>
+			</ul>
+			<h4><font color="red">错误示范:</font></h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">hello:FLOAT = "114514.0"</span> - 浮点数的值不需要引号。</li>
+				<li class="exampleitem"><span class="methodexample">hello:FLOAT = 114514.</span> - 如果你会这么打小数点我能笑你一辈子。</li>
+				<li class="exampleitem"><span class="methodexample">hello:FLOAT = .114514</span> - 我能笑你十辈子。</li>
+				<li class="exampleitem"><span class="methodexample">hello:FLOAT = 11451。4</span> - 我能笑你百辈子。</li>
+			</ul>
+			<hr>
+
+			<h2 id="Array">Array</h2>
+			<p class="methodbox">数据类型: <b>Array</b></p>
+			<p>这个类型叫数组类型，我们通常称为组，他可以用一个变量表达多种不同的值，组里面的各个数值我们统称为"成员"，他们的先后顺序是从<font color="red">'0'</font>开始排序，从左往右数的，他们的可以用索引（就是两个中括号里一个数字，如hello[2]，就索引了数组里第三个成员的值）获取对应值。</p>
+			<h4>举个例子:</h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">hello:Array = [abc,123,114514]</span> - 这个组变量的值被赋值为<span class="methodexample">[abc,123,114514] </span>，hello[0]就表示这个组里的第一个值，所以hello[0]的值就是"abc"，以此类推hello[1]就是"123"，hello[2]就是"114514"。</li>
+			</ul>
+			<h4><font color="red">错误示范:</font></h4>
+			<ul class="methoddiv">
+				<li class="exampleitem"><span class="methodexample">hello:Array = 114514,123,www</span> - 数组必须要用中括号括起来。</li>
+				<li class="exampleitem"><span class="methodexample">hello:Array = [114514,123,www]，你使用了hello[-1]或索引了一个小于0的数或索引了一个非整数。</span> - 这样做会出现不可预料的结果，所以我不建议你这样搞。</li>
+				<li class="exampleitem"><span class="methodexample">hello:Array = [114514,123,www]，你使用了hello0尝试索引</span> - 别忘了索引数要在中括号里。</li>
+			</ul>
+			<hr>
+		</div>
+	</body>
+</html>
