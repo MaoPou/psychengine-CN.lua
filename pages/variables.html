@@ -37,149 +37,326 @@
 
 		<!-- Page Info -->
 		<div class="infobox">
-			<h1>Variables</h1>
+			<h1>变量</h1>
 			<hr>
-			<p>All of these variables can be accessed directly in Lua without the need of any functions like <a href="reflection.html#getProperty">"getProperty"</a>, changing them however, will have no direct effect in other scripts or in the game itself.</p>
+			<p>这些变量都可以在 Lua 中直接访问，而不需要使用 <a href="reflection.html#getProperty">"getProperty"</a>,但是更改它们不会对其他脚本或游戏本身产生直接影响。</p>
+			<p>因为各个版本的变量可能不互通，所以我会特别注明。</p>
 			<hr>
-			<h3>Lua Scripting Variables</h3>
-			<li class="variableitem"><span class="methodexample">luaDebugMode</span> - Toggles showing errors. Default value: false</li>
-			<li class="variableitem"><span class="methodexample">luaDeprecatedWarnings</span> - Shows functions that should be replaced by newer ones. Requires <span class="methodexample">luaDebugMode</span> to be true. Default value: true</li>
+			<h3>Lua 脚本变量</h3>
+			<li class="variableitem"><span class="methodexample">luaDebugMode</span> - 切换为显示错误， 默认为false。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">luaDeprecatedWarnings</span> - 显示错误函数应该替换成的新函数， 但是 <span class="methodexample">luaDebugMode</span> 必须为true。 默认为true。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
 			<br>
-			<li class="variableitem"><span class="methodexample">scriptName</span> - Where the Lua Script running is located.</li>
-			<li class="variableitem"><span class="methodexample">modFolder</span> - Mod Folder the Lua Script is running in.</li>
-			<li class="variableitem"><span class="methodexample">currentModDirectory</span> - Mod Folder of the Custom Week being played, empty on Base Game Weeks.</li>
+
+			<li class="variableitem"><span class="methodexample">scriptName</span> - 正在运行的 Lua 脚本所在的路径。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
 			<hr>
-			<h3>Psych Engine Information Variables</h3>
-			<li class="variableitem"><span class="methodexample">version</span> - Psych Engine's Version String.</li>
-			<li class="variableitem"><span class="methodexample">buildTarget</span> - What kind of build of Psych you're running, can be: "windows", "windows_x86" or "linux".</li>
+
+			<li class="variableitem"><span class="methodexample">modFolder</span> - Lua脚本正在运行的Mod文件路径。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0]</b></font> </b></p>
 			<hr>
-			<h3>Function Return Variables</h3>
-			<li class="variableitem"><span class="methodexample">Function_StopLua</span> - Stops the function from being called only in the next Lua Scripts.</li>
-			<li class="variableitem"><span class="methodexample">Function_StopHScript</span> - Stops the function from being called only in the next HScripts.</li>
-			<li class="variableitem"><span class="methodexample">Function_StopAll</span> - Stops the function from being called in the next Lua Scripts and HScripts.</li>
-			<li class="variableitem"><span class="methodexample">Function_Stop</span> - Cancels functions like startCountdown or endSong, used mostly for cutscenes.</li>
-			<li class="variableitem"><span class="methodexample">Function_Continue</span> - Once your script runs, continues like normal.</li>
+
+			<li class="variableitem"><span class="methodexample">currentModDirectory</span> - 正在游玩自定义周的 Mod 文件夹，原版游戏周为空。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
 			<hr>
-			<h3>flixel.FlxG Variables</h3>
-			<li class="variableitem"><span class="methodexample">screenWidth</span> - <a href="https://api.haxeflixel.com/flixel/FlxG.html#width">FlxG.width</a></li>
-			<li class="variableitem"><span class="methodexample">screenHeight</span> - <a href="https://api.haxeflixel.com/flixel/FlxG.html#height">FlxG.height</a></li>
+
+			<h3>Psych Engine信息变量</h3>
+			<li class="variableitem"><span class="methodexample">version</span> - Psych Engine的版本号。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
 			<hr>
-			<h3>Song Variables</h3>
-			<li class="variableitem"><span class="methodexample">songName</span> - Instrumental's name, as seen in the Pause Screen.</li>
-			<li class="variableitem"><span class="methodexample">songPath</span> - Formatted version of <b>songName</b>, all letters in lowercase and replacing spaces with hyphens.</li>
-			<li class="variableitem"><span class="methodexample">loadedSongName</span> - Song name from Freeplay/Story Menu.</li>
-			<li class="variableitem"><span class="methodexample">loadedSongPath</span> - Formatted version of <b>loadedSongName</b>, all letters in lowercase and replacing spaces with hyphens.</li>
+
+			<li class="variableitem"><span class="methodexample">buildTarget</span> - Psych的运行环境，可以是: "windows", "windows_x86" 或 "linux"。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<h3>函数返回变量</h3>
+			<li class="variableitem"><span class="methodexample">Function_StopLua</span> - 仅在下一个 Lua 脚本中停止调用该函数。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">Function_StopHScript</span> - 仅在下一个 HScripts 中停止调用该函数。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">Function_StopAll</span> - 停止在下一个 Lua 脚本和 HScript 中调用该函数。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">Function_Stop</span> - 取消比如startCountdown或endSong之类的功能，主要用于过场动画。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">Function_Continue</span> - 一旦脚本运行，就像平常一样继续。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<h3>flixel.FlxG 变量</h3>
+			<li class="variableitem"><span class="methodexample">screenWidth</span> - <a href="https://api.haxeflixel.com/flixel/FlxG.html#width">FlxG.width</a>，屏幕宽度。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">screenHeight</span> - <a href="https://api.haxeflixel.com/flixel/FlxG.html#height">FlxG.height</a>，屏幕高度。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<h3>歌曲变量</h3>
+			<li class="variableitem"><span class="methodexample">songName</span> - 当前歌曲名字。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">songPath</span> - <b>songName</b>的格式化版本, 所以字母都是小写，用<b>“-”</b>代替空格。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">loadedSongName</span> - 歌曲在Freeplay/Story Menu的名字。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">loadedSongPath</span> - <b>loadedSongName</b>的格式化版本, 所以字母都是小写，用<b>“-”</b>代替空格。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0]</b></font> </b></p>
+			<hr>
+
 			<br>
-			<li class="variableitem"><span class="methodexample">bpm</span> - Starting BPM.</li>
-			<li class="variableitem"><span class="methodexample">songLength</span> - Song length in milliseconds.</li>
-			<li class="variableitem"><span class="methodexample">startedCountdown</span> - If the Countdown already started, starts at false.</li>
-			<li class="variableitem"><span class="methodexample">seenCutscene</span> - False on the first try in a Song, set to true when you Restart Song or get blueballed, used for Cutscene checking.</li>
-			<li class="variableitem"><span class="methodexample">inGameOver</span> - Are you in Game Over Screen? Starts at false.</li>
+			<li class="variableitem"><span class="methodexample">bpm</span> - 歌曲的BPM。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
 			<hr>
-			<h3>Chart Variables</h3>
-			<li class="variableitem"><span class="methodexample">chartPath</span> - Directory of the chart, including the file extension.</li>
-			<li class="variableitem"><span class="methodexample">curStage</span> - Song's Stage as seen in the Chart Editor.</li>
-			<li class="variableitem"><span class="methodexample">scrollSpeed</span> - Starting Scroll Speed.</li>
-			<li class="variableitem"><span class="methodexample">hasVocals</span> - Song has Vocals enabled.</li>
+
+			<li class="variableitem"><span class="methodexample">songLength</span> - 歌曲时长（以毫秒为单位）。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
 			<hr>
-			<h3>Difficulty Variables</h3>
-			<li class="variableitem"><span class="methodexample">difficulty</span> - Difficulty ID.</li>
-			<li class="variableitem"><span class="methodexample">difficultyName</span> - Original Difficulty Name.</li>
-			<li class="variableitem"><span class="methodexample">difficultyPath</span> - Formats difficulty name to be in lowercase and start with an hyphen, Empty on Normal difficulty.</li>
-			<li class="variableitem"><span class="methodexample">difficultyNameTranslation</span> - Translated Difficulty Name.</li>
+
+			<li class="variableitem"><span class="methodexample">startedCountdown</span> - 如果倒计时已经开始，他就为false。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
 			<hr>
-			<h3>Story Mode/Week Variables</h3>
-			<li class="variableitem"><span class="methodexample">isStoryMode</span> - Boolean value of the game mode.</li>
-			<li class="variableitem"><span class="methodexample">weekRaw</span> - Week ID.</li>
-			<li class="variableitem"><span class="methodexample">week</span> - Week Name as found in <span class="methodexample">weeks/</span> folder.</li>
+
+			<li class="variableitem"><span class="methodexample">seenCutscene</span> - 在歌曲中第一次尝试时为 False，当您重新启动歌曲或被拒绝时设置为 True，用于检测过场动画是否已经看过。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
 			<hr>
+
+			<li class="variableitem"><span class="methodexample">inGameOver</span> - 用于确认你是否已经死亡。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<h3>铺子变量</h3>
+			<li class="variableitem"><span class="methodexample">chartPath</span>  - 铺子的目录，包括文件扩展名。</li>
+			<p class="methodbox">版本: <b><font color="red"><b>[1.0.0]</b></font></b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">curStage</span> - 铺子编辑器中显示的歌曲背景名称。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">scrollSpeed</span> - 起始的箭头滚动速度。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">hasVocals</span> - 歌曲是否启用人声。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<h3>难度变量</h3>
+			<li class="variableitem"><span class="methodexample">difficulty</span> - 难度ID。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">difficultyName</span> - 难度名称。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">difficultyPath</span> - 将难度名称转化为小写并以连符开头，普通难度时为空。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">difficultyNameTranslation</span> - 翻译的难度名称。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0]</b></font> </b></p>
+			<hr>
+
+			<h3>Story Mode/Week 变量</h3>
+			<li class="variableitem"><span class="methodexample">isStoryMode</span> -是否是从story mode开始的歌曲。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">weekRaw</span> - Week的ID.</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">week</span> - 当前Week在<span class="methodexample">weeks/</span>的名称。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
 			<h3>Section Variables</h3>
-			<li class="variableitem"><span class="methodexample">curBpm</span> - BPM at the current section.</li>
-			<li class="variableitem"><span class="methodexample">curSection</span> - Section ID.</li>
-			<li class="variableitem"><span class="methodexample">curBeat</span> - Current beat ID.</li>
-			<li class="variableitem"><span class="methodexample">curStep</span> - Current Step ID.</li>
-			<li class="variableitem"><span class="methodexample">curDecBeat</span> - Current beat ID, but it shows in its decimals cases how far away it is from the next beat.</li>
-			<li class="variableitem"><span class="methodexample">curDecStep</span> - Current step ID, but it shows in its decimals cases how far away it is from the next step.</li>
-			<li class="variableitem"><span class="methodexample">crochet</span> - How long in milliseconds a Beat takes in the current section.</li>
-			<li class="variableitem"><span class="methodexample">stepCrochet</span> - How long in milliseconds a Step takes in the current section.</li>
-			<br>
-			<li class="variableitem"><span class="methodexample">mustHitSection</span> - Current section targets the Player?</li>
-			<li class="variableitem"><span class="methodexample">altAnim</span> - Current section has Alt Animation enabled?</li>
-			<li class="variableitem"><span class="methodexample">gfSection</span> - Current section targets GF?</li>
+			<li class="variableitem"><span class="methodexample">curBpm</span> - 当前BPM。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
 			<hr>
+			<li class="variableitem"><span class="methodexample">curSection</span> - Section的ID.</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">curBeat</span> -当前的beat ID.</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">curStep</span> - 当前的Step ID.</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">curDecBeat</span> - beat ID，但是这会显示距离下一个beat的时长。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">curDecStep</span> - Step ID，但是这会显示距离下一个Step的时长。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">crochet</span> - Beat 在当前段落中花费的时间（以毫秒为单位）。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">stepCrochet</span> - Step 在当前段落中花费的时间（以毫秒为单位）。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<br>
+			<li class="variableitem"><span class="methodexample">mustHitSection</span> - 当前部分是否针对玩家的。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">altAnim</span> - 当前部分启用了 Alt Animation。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">gfSection</span> - 当前部分是否针对gf的。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
 			<h3>Score Variables</h3>
-			<li class="variableitem"><span class="methodexample">score</span> - Current score.</li>
-			<li class="variableitem"><span class="methodexample">misses</span> - Current notes missed.</li>
-			<li class="variableitem"><span class="methodexample">hits</span> - Current notes hit.</li>
-			<li class="variableitem"><span class="methodexample">combo</span> - Current note combo. Starts at 0.</li>
-			<li class="variableitem"><span class="methodexample">deaths</span> - How many times you died so far.</li>
+			<li class="variableitem"><span class="methodexample">score</span> - 当前分数。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">misses</span> - 当前错过的箭头数。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">hits</span> - 当前已经击打的箭头数。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">combo</span> - 当前的连击数。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">deaths</span> - 到目前为止你死了多少次。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0]</b></font> </b></p>
+			<hr>
 			<br>
-			<li class="variableitem"><span class="methodexample">rating</span> - Rating percentage, ranges from 0 to 1.</li>
-			<li class="variableitem"><span class="methodexample">ratingName</span> - "?", "Sick!", "Good", etc.</li>
-			<li class="variableitem"><span class="methodexample">ratingFC</span> - Can be: "Clear", "SDBC", "FC", "GFC", "SFC".</li>
-			<li class="variableitem"><span class="methodexample">totalPlayed</span> - Misses + Hits, used for rating calculation.</li>
-			<li class="variableitem"><span class="methodexample">totalNotesHit</span> - Accumulated score from hit ratings used for rating calculation, "Sick" = +1, "Good" = +0.67, "Bad" = +0.34, "Shit" = 0.</li>
+			<li class="variableitem"><span class="methodexample">rating</span> - 准确率，从0~1。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
 			<hr>
-			<h3>Gameplay Modifiers Variables</h3>
-			<li class="variableitem"><span class="methodexample">playbackRate</span> - Default value: 1</li>
-			<li class="variableitem"><span class="methodexample">healthGainMult</span> - Default value: 1</li>
-			<li class="variableitem"><span class="methodexample">healthLossMult</span> - Default value: 1</li>
-			<li class="variableitem"><span class="methodexample">instakillOnMiss</span> - Default value: false</li>
-			<li class="variableitem"><span class="methodexample">practice</span> - Default value: false</li>
-			<li class="variableitem"><span class="methodexample">botPlay</span> - Default value: false</li>
+
+			<li class="variableitem"><span class="methodexample">ratingName</span> - "?", "Sick!", "Good", 等其他的。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
 			<hr>
-			<h3>Strum Notes Variables</h3>
-			<li class="variableitem"><span class="methodexample">defaultPlayerStrumX0</span> - Player's Left Note X: 732</li>
-			<li class="variableitem"><span class="methodexample">defaultPlayerStrumY0</span> - Player's Left Note Y: 50 (Upscroll) - 570 (Downscroll) </li>
-			<li class="variableitem"><span class="methodexample">defaultPlayerStrumX1</span> - Player's Down Note X: 844</li>
-			<li class="variableitem"><span class="methodexample">defaultPlayerStrumY1</span> - Player's Down Note Y: 50 (Upscroll) - 570 (Downscroll) </li>
-			<li class="variableitem"><span class="methodexample">defaultPlayerStrumX2</span> - Player's Up Note X: 956</li>
-			<li class="variableitem"><span class="methodexample">defaultPlayerStrumY2</span> - Player's Up Note Y: 50 (Upscroll) - 570 (Downscroll) </li>
-			<li class="variableitem"><span class="methodexample">defaultPlayerStrumX3</span> - Player's Right Note X: 1068</li>
-			<li class="variableitem"><span class="methodexample">defaultPlayerStrumY3</span> - Player's Right Note Y: 50 (Upscroll) - 570 (Downscroll) </li>
-			<li class="variableitem"><span class="methodexample">defaultOpponentStrumX0</span> - Opponent's Left Note X: 92</li>
-			<li class="variableitem"><span class="methodexample">defaultOpponentStrumY0</span> - Opponent's Left Note Y: 50 (Upscroll) - 570 (Downscroll) </li>
-			<li class="variableitem"><span class="methodexample">defaultOpponentStrumX1</span> - Opponent's Down Note X: 204</li>
-			<li class="variableitem"><span class="methodexample">defaultOpponentStrumY1</span> - Opponent's Down Note Y: 50 (Upscroll) - 570 (Downscroll) </li>
-			<li class="variableitem"><span class="methodexample">defaultOpponentStrumX2</span> - Opponent's Up Note X: 316</li>
-			<li class="variableitem"><span class="methodexample">defaultOpponentStrumY2</span> - Opponent's Up Note Y: 50 (Upscroll) - 570 (Downscroll) </li>
-			<li class="variableitem"><span class="methodexample">defaultOpponentStrumX3</span> - Opponent's Right Note X: 428</li>
-			<li class="variableitem"><span class="methodexample">defaultOpponentStrumY3</span> - Opponent's Right Note Y: 50 (Upscroll) - 570 (Downscroll) </li>
-			<p style="color: gray">Note: All Strum variables are only available after "onCountdownStarted" is called, otherwise their values are 0.</p>
+
+			<li class="variableitem"><span class="methodexample">ratingFC</span> - 可能是: "Clear", "SDBC", "FC", "GFC", "SFC".</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
 			<hr>
-			<h3>Character Variables</h3>
-			<li class="variableitem"><span class="methodexample">defaultBoyfriendX</span> - Player Group X, as seen in the Stage .JSON</li>
-			<li class="variableitem"><span class="methodexample">defaultBoyfriendY</span> - Player Group Y, as seen in the Stage .JSON</li>
-			<li class="variableitem"><span class="methodexample">defaultOpponentX</span> - Opponent Group X, as seen in the Stage .JSON</li>
-			<li class="variableitem"><span class="methodexample">defaultOpponentY</span> - Opponent Group Y, as seen in the Stage .JSON</li>
-			<li class="variableitem"><span class="methodexample">defaultGirlfriendX</span> - Girlfriend Group X, as seen in the Stage .JSON</li>
-			<li class="variableitem"><span class="methodexample">defaultGirlfriendY</span> - Girlfriend Group Y, as seen in the Stage .JSON</li>
+
+			<li class="variableitem"><span class="methodexample">totalPlayed</span> - 错过的 + 已经打击的, 用于计算准确率。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">totalNotesHit</span> - 用于评分计算的命中率的累积分数，"Sick" = +1, "Good" = +0.67, "Bad" = +0.34, "Shit" = 0.</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0]</b></font> </b></p>
+			<hr>
+
+			<h3>Gameplay 变量修饰符</h3>
+			<li class="variableitem"><span class="methodexample">playbackRate</span> - 默认为 1</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">healthGainMult</span> -  默认为 1</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">healthLossMult</span> -  默认为 1</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">instakillOnMiss</span> -  默认为关闭</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">practice</span> - 默认为关闭</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<li class="variableitem"><span class="methodexample">botPlay</span> - 默认为关闭</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+
+			<h3>箭头变量</h3>
+			<li class="variableitem"><span class="methodexample">defaultPlayerStrumX0</span> - 玩家的左箭头 X: 732</li>
+			<li class="variableitem"><span class="methodexample">defaultPlayerStrumY0</span> - 玩家的左箭头 Y: 50 (Upscroll模式) - 570 (Downscroll模式) </li>
+			<li class="variableitem"><span class="methodexample">defaultPlayerStrumX1</span> - 玩家的下箭头 X: 844</li>
+			<li class="variableitem"><span class="methodexample">defaultPlayerStrumY1</span> - 玩家的下箭头 Y: 50 (Upscroll模式) - 570 (Downscroll模式) </li>
+			<li class="variableitem"><span class="methodexample">defaultPlayerStrumX2</span> - 玩家的上箭头 X: 956</li>
+			<li class="variableitem"><span class="methodexample">defaultPlayerStrumY2</span> - 玩家的上箭头 Y: 50 (Upscroll模式) - 570 (Downscroll模式) </li>
+			<li class="variableitem"><span class="methodexample">defaultPlayerStrumX3</span> - 玩家的右箭头 X: 1068</li>
+			<li class="variableitem"><span class="methodexample">defaultPlayerStrumY3</span> - 玩家的右箭头 Y: 50 (Upscroll模式) - 570 (Downscroll模式) </li>
+			<li class="variableitem"><span class="methodexample">defaultOpponentStrumX0</span> - 对手的左箭头 X: 92</li>
+			<li class="variableitem"><span class="methodexample">defaultOpponentStrumY0</span> - 对手的左箭头 Y: 50 (Upscroll模式) - 570 (Downscroll模式) </li>
+			<li class="variableitem"><span class="methodexample">defaultOpponentStrumX1</span> - 对手的下箭头 X: 204</li>
+			<li class="variableitem"><span class="methodexample">defaultOpponentStrumY1</span> - 对手的下箭头 Y: 50 (Upscroll模式) - 570 (Downscroll模式) </li>
+			<li class="variableitem"><span class="methodexample">defaultOpponentStrumX2</span> - 对手的上箭头 X: 316</li>
+			<li class="variableitem"><span class="methodexample">defaultOpponentStrumY2</span> - 对手的下箭头 Y: 50 (Upscroll模式) - 570 (Downscroll模式) </li>
+			<li class="variableitem"><span class="methodexample">defaultOpponentStrumX3</span> - 对手的右箭头 X: 428</li>
+			<li class="variableitem"><span class="methodexample">defaultOpponentStrumY3</span> - 对手的右箭头 Y: 50 (Upscroll模式) - 570 (Downscroll模式) </li>
+			<p style="color: gray">注意：所有 Strum 变量仅在调用 “onCountdownStarted” 后可用，否则其值为 0。</p>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
+			<h3>角色变量</h3>
+			<li class="variableitem"><span class="methodexample">defaultBoyfriendX</span> - 玩家的X，他在背景的 .JSON</li>
+			<li class="variableitem"><span class="methodexample">defaultBoyfriendY</span> - 玩家的Y，他在背景的 .JSON</li>
+			<li class="variableitem"><span class="methodexample">defaultOpponentX</span> - 对手的X，他在背景的 .JSON</li>
+			<li class="variableitem"><span class="methodexample">defaultOpponentY</span> - 对手的Y，他在背景的 .JSON</li>
+			<li class="variableitem"><span class="methodexample">defaultGirlfriendX</span> - Girlfriend的X, 他在背景的 .JSON</li>
+			<li class="variableitem"><span class="methodexample">defaultGirlfriendY</span> - Girlfriend的Y, 他在背景的 .JSON</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
 			<br>
-			<li class="variableitem"><span class="methodexample">boyfriendName</span> - Current Player Character's .JSON name (without the extension).</li>
-			<li class="variableitem"><span class="methodexample">dadName</span> - Current Opponent Character's .JSON name (without the extension).</li>
-			<li class="variableitem"><span class="methodexample">gfName</span> - Current Girlfriend Character's .JSON name (without the extension).</li>
+			<li class="variableitem"><span class="methodexample">boyfriendName</span> - 当前玩家角色的 .JSON 名称（不带扩展名）。</li>
+			<li class="variableitem"><span class="methodexample">dadName</span> - 当前对手角色的 .JSON 名称（不带扩展名）。</li>
+			<li class="variableitem"><span class="methodexample">gfName</span> - 当前Girlfriend角色的 .JSON 名称（不带扩展名）。</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
 			<hr>
-			<h3>backend.ClientPrefs Variables</h3>
-			<li class="variableitem"><span class="methodexample">downscroll</span> - Default value: false</li>
-			<li class="variableitem"><span class="methodexample">middlescroll</span> - Default value: false</li>
-			<li class="variableitem"><span class="methodexample">framerate</span> - Default value: 60</li>
-			<li class="variableitem"><span class="methodexample">ghostTapping</span> - Default value: true</li>
-			<li class="variableitem"><span class="methodexample">hideHud</span> - Default value: false</li>
-			<li class="variableitem"><span class="methodexample">timeBarType</span> - Default value: "Time Left"</li>
-			<li class="variableitem"><span class="methodexample">scoreZoom</span> - Default value: true</li>
-			<li class="variableitem"><span class="methodexample">cameraZoomOnBeat</span> - Default value: true</li>
-			<li class="variableitem"><span class="methodexample">flashingLights</span> - Default value: true</li>
-			<li class="variableitem"><span class="methodexample">noteOffset</span> - Default value: 0</li>
-			<li class="variableitem"><span class="methodexample">healthBarAlpha</span> - Default value: 1.0</li>
-			<li class="variableitem"><span class="methodexample">noResetButton</span> - Default value: false</li>
-			<li class="variableitem"><span class="methodexample">lowQuality</span> - Default value: false</li>
-			<li class="variableitem"><span class="methodexample">shadersEnabled</span> - Default value: true</li>
-			<li class="variableitem"><span class="methodexample">guitarHeroSustains</span> - Default value: true</li>
-			<li class="variableitem"><span class="methodexample">noteSkin</span> - Default value: "Default"</li>
-			<li class="variableitem"><span class="methodexample">splashSkin</span> - Default value: "Psych"</li>
-			<li class="variableitem"><span class="methodexample">splashAlpha</span> - Default value: 0.6</li>
+			<h3>设置变量</h3>
+			<li class="variableitem"><span class="methodexample">downscroll</span> - 默认为false</li>
+			<li class="variableitem"><span class="methodexample">middlescroll</span> - 默认为false</li>
+			<li class="variableitem"><span class="methodexample">framerate</span> - 默认为60</li>
+			<li class="variableitem"><span class="methodexample">ghostTapping</span> - 默认为true</li>
+			<li class="variableitem"><span class="methodexample">hideHud</span> - 默认为false</li>
+			<li class="variableitem"><span class="methodexample">timeBarType</span> - 默认为"Time Left"</li>
+			<li class="variableitem"><span class="methodexample">scoreZoom</span> - 默认为true</li>
+			<li class="variableitem"><span class="methodexample">cameraZoomOnBeat</span> - 默认为true</li>
+			<li class="variableitem"><span class="methodexample">flashingLights</span> - 默认为true</li>
+			<li class="variableitem"><span class="methodexample">noteOffset</span> - 默认为0</li>
+			<li class="variableitem"><span class="methodexample">healthBarAlpha</span> - 默认为1.0</li>
+			<li class="variableitem"><span class="methodexample">noResetButton</span> - 默认为false</li>
+			<li class="variableitem"><span class="methodexample">lowQuality</span> - 默认为false</li>
+			<li class="variableitem"><span class="methodexample">shadersEnabled</span> - 默认为true</li>
+			<li class="variableitem"><span class="methodexample">guitarHeroSustains</span> - 默认为true</li>
+			<li class="variableitem"><span class="methodexample">noteSkin</span> - 默认为"Default"</li>
+			<li class="variableitem"><span class="methodexample">splashSkin</span> - 默认为"Psych"</li>
+			<li class="variableitem"><span class="methodexample">splashAlpha</span> - 默认为0.6</li>
 			<br>
-			<li class="variableitem"><span class="methodexample">noteSkinPostfix</span> - Noteskin File Path postfix (Examples: "-future", "-chip", empty for Default).</li>
-			<li class="variableitem"><span class="methodexample">splashSkinPostfix</span> - Note Splashes File Path postfix (Examples: "-diamond", "-vanilla", empty for Psych).</li>
+			<li class="variableitem"><span class="methodexample">noteSkinPostfix</span> - 箭头皮肤(比如: "-future", "-chip", 默认为空).</li>
+			<li class="variableitem"><span class="methodexample">splashSkinPostfix</span> - 飞溅皮肤(比如: "-diamond", "-vanilla", Psych 为空).</li>
+			<p class="methodbox">版本: <b> <font color="red"><b>[1.0.0],[0.7.3]</b></font> </b></p>
+			<hr>
 	</body>
 </html>
